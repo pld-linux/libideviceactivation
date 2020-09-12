@@ -5,24 +5,24 @@
 Summary:	Library to handle activation of Apple iOS devices
 Summary(pl.UTF-8):	Biblioteka do obsługi aktywacji urządzeń Apple iOS
 Name:		libideviceactivation
-# 1.2.x is stable
-Version:	1.0.0
+Version:	1.1.1
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
-#Source0Download: http://www.libimobiledevice.org/
-Source0:	http://www.libimobiledevice.org/downloads/%{name}-%{version}.tar.bz2
-# Source0-md5:	e8d133fd17bf688a457af88d84d97711
-URL:		http://www.libimobiledevice.org/
-BuildRequires:	autoconf >= 2.61
+#Source0Download: https://libimobiledevice.org/
+Source0:	https://github.com/libimobiledevice/libideviceactivation/releases/download/%{version}/%{name}-%{version}.tar.bz2
+# Source0-md5:	1211fe0c589732cd7de7c45d6263ad2d
+URL:		https://libimobiledevice.org/
+BuildRequires:	autoconf >= 2.64
 BuildRequires:	automake
 BuildRequires:	curl-devel >= 7.20
-BuildRequires:	libimobiledevice-devel >= 1.1.4
-BuildRequires:	libplist-devel >= 1.11
+BuildRequires:	libimobiledevice-devel >= 1.3.0
+BuildRequires:	libplist-devel >= 2.2.0
 BuildRequires:	libxml2-devel >= 1:2.9
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
-Requires:	libplist >= 1.11
+Requires:	libimobiledevice >= 1.3.0
+Requires:	libplist >= 2.2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -37,8 +37,8 @@ Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libideviceactivation
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	curl-devel >= 7.20
-Requires:	libimobiledevice-devel >= 1.1.4
-Requires:	libplist-devel >= 1.11
+Requires:	libimobiledevice-devel >= 1.3.0
+Requires:	libplist-devel >= 2.2.0
 Requires:	libxml2-devel >= 1:2.9
 
 %description devel
@@ -89,20 +89,20 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS NEWS README
+%doc AUTHORS NEWS README.md
 %attr(755,root,root) %{_bindir}/ideviceactivation
-%attr(755,root,root) %{_libdir}/libideviceactivation.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libideviceactivation.so.2
+%attr(755,root,root) %{_libdir}/libideviceactivation-1.0.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libideviceactivation-1.0.so.2
 %{_mandir}/man1/ideviceactivation.1*
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libideviceactivation.so
+%attr(755,root,root) %{_libdir}/libideviceactivation-1.0.so
 %{_includedir}/libideviceactivation.h
 %{_pkgconfigdir}/libideviceactivation-1.0.pc
 
 %if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/libideviceactivation.a
+%{_libdir}/libideviceactivation-1.0.a
 %endif
