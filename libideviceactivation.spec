@@ -6,7 +6,7 @@ Summary:	Library to handle activation of Apple iOS devices
 Summary(pl.UTF-8):	Biblioteka do obsługi aktywacji urządzeń Apple iOS
 Name:		libideviceactivation
 Version:	1.1.1
-Release:	2
+Release:	3
 License:	LGPL v2+
 Group:		Libraries
 #Source0Download: https://libimobiledevice.org/
